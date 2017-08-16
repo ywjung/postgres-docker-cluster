@@ -96,3 +96,5 @@ VOLUME /var/lib/postgresql/data
 USER root
 
 CMD ["/usr/local/bin/cluster/entrypoint.sh"]
+
+HEALTHCHECK CMD "./usr/local/bin/cluster/healthcheck/is_postgres_running.sh"
