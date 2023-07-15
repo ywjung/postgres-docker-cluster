@@ -1,5 +1,5 @@
-FROM postgres:9.6
-ARG POSTGRES_VERSION=9.6
+FROM postgres:15.3
+ARG POSTGRES_VERSION=15.3
 
 RUN apt-get update --fix-missing && \
     apt-get install -y postgresql-server-dev-$POSTGRES_VERSION postgresql-$POSTGRES_VERSION-repmgr wget openssh-server barman-cli
