@@ -1,12 +1,12 @@
 FROM debian:jessie
-ARG DOCKERIZE_VERSION=v0.2.0
-ARG POSTGRES_CLIENT_VERSION=9.6
-ARG PGPOOL_VERSION=3.6\*
+ARG DOCKERIZE_VERSION=v0.7.0
+ARG POSTGRES_CLIENT_VERSION=15.3
+ARG PGPOOL_VERSION=4.4.3\*
 
 RUN groupadd -r postgres --gid=999 && useradd -r -g postgres -d /home/postgres  --uid=999 postgres
 
 # grab gosu for easy step-down from root
-ARG GOSU_VERSION=1.7
+ARG GOSU_VERSION=1.14.16
 RUN set -x \
 	&& apt-get update && apt-get install -y --no-install-recommends ca-certificates wget && rm -rf /var/lib/apt/lists/* \
 	&& wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)" \
